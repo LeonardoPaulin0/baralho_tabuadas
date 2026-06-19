@@ -9,7 +9,7 @@
 
   <!-- corner suit marks -->
   <text x="40" y="60" font-family="'Space Mono', monospace" font-size="22" font-weight="700" fill="#1E3A8A">7×8</text>
-  <text x="240" y="358" font-family="'Space Mono', monospace" font-size="22" font-weight="700" fill="#1E3A8A" transform="rotate(180 240 358)">7×8</text>
+  
 
   <!-- center big operation -->
   <g transform="translate(140,165)">

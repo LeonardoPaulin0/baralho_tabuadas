@@ -618,8 +618,17 @@ button {
   color: var(--color-green);
 }
 
-.included-item strong { display: block; font-family: var(--font-display); font-size: 1.02rem; }
-.included-item span { color: var(--color-ink-soft); font-size: 0.9rem; }
+.included-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--color-ink);
+}
+
+.included-item span {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
 
 /* ====================================================
    Depoimentos

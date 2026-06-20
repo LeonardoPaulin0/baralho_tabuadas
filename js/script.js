@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * todos os botões "Comprar agora" da página usam esta constante
  * através do atributo [data-checkout-link] em cada <a>.
  */
-const CHECKOUT_LINK = '#';
+const CHECKOUT_LINK = 'https://pay.cakto.com.br/5n4vngf_935283';
 
 function applyCheckoutLink() {
   document.querySelectorAll('[data-checkout-link]').forEach((el) => {

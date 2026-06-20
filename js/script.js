@@ -3,6 +3,8 @@
 // ====================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  applyCheckoutLink();
+  applyPrice();
   initFaq();
   initScrollReveal();
   initStickyCta();
@@ -12,16 +14,64 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Link único de checkout.
  * Troque apenas este valor quando o checkout estiver pronto —
- * todos os botões "Comprar Agora" da página usam esta constante
+ * todos os botões "Comprar agora" da página usam esta constante
  * através do atributo [data-checkout-link] em cada <a>.
  */
 const CHECKOUT_LINK = '#';
 
-(function applyCheckoutLink() {
+function applyCheckoutLink() {
   document.querySelectorAll('[data-checkout-link]').forEach((el) => {
     el.setAttribute('href', CHECKOUT_LINK);
   });
-})();
+}
+
+/**
+ * Preço único do produto.
+ * NÃO edite valores de preço aqui — edite no HTML, na tag <body>:
+ *   <body data-price="14.97" data-price-old="29.90">
+ * Esta função lê esses dois atributos e preenche automaticamente
+ * todo elemento marcado com [data-price-display] no formato pedido:
+ *   "full"      -> R$ 14,97
+ *   "value"     -> 14,97          (sem o "R$", usado ao lado de um <sup>R$</sup> fixo)
+ *   "old-full"  -> De R$ 29,90    (usa data-price-old; some se o atributo não existir)
+ */
+function applyPrice() {
+  const body = document.body;
+  const price = parseFloat(body.dataset.price);
+  const priceOld = body.dataset.priceOld ? parseFloat(body.dataset.priceOld) : null;
+
+  if (isNaN(price)) {
+    console.warn('[preço] Defina data-price na tag <body>, ex: data-price="14.97"');
+    return;
+  }
+
+  const formatBRL = (n) =>
+    n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  document.querySelectorAll('[data-price-display]').forEach((el) => {
+    const mode = el.getAttribute('data-price-display');
+
+    switch (mode) {
+      case 'full':
+        el.textContent = `R$ ${formatBRL(price)}`;
+        break;
+      case 'value':
+        el.textContent = formatBRL(price);
+        break;
+      case 'old-full':
+        if (priceOld !== null && !isNaN(priceOld)) {
+          el.textContent = `De R$ ${formatBRL(priceOld)}`;
+          el.style.display = '';
+        } else {
+          // sem preço antigo definido: oculta o elemento (ex.: sem oferta ativa)
+          el.style.display = 'none';
+        }
+        break;
+      default:
+        el.textContent = `R$ ${formatBRL(price)}`;
+    }
+  });
+}
 
 /**
  * Acordeão do FAQ — apenas uma pergunta aberta por vez,

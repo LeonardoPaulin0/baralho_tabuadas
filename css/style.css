@@ -575,7 +575,7 @@ button {
 }
 
 @media (min-width: 900px) {
-  .whats-included { grid-template-columns: 0.9fr 1.1fr; }
+  .whats-included { grid-template-columns: 1.1fr 0.9fr; }
 }
 
 .included-visual {
@@ -1136,4 +1136,17 @@ button {
   .bonus-content h3 {
     font-size: 1.5rem;
   }
+}
+
+.product-photo {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.included-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

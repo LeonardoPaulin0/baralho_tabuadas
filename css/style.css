@@ -574,31 +574,24 @@ button {
   align-items: center;
 }
 
+/* alterado aqui imagem do produto*/
+
 @media (min-width: 900px) {
   .whats-included {
-    grid-template-columns: 1.5fr 0.5fr;
-    gap: 70px;
-    align-items: center;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 60px;
   }
 }
 
 .included-visual {
-  position: relative;
-  display: flex;
   justify-content: flex-start;
-  align-items: center;
-
-  margin-left: -80px;
+  margin-left: -50px;
 }
 
-/* alterado aqui imagem do produto*/
-
 .included-visual img {
-  width: 125%;
+  width: 115%;
   max-width: none;
   height: auto;
-  border-radius: 18px;
-  filter: drop-shadow(0 18px 30px rgba(26, 26, 46, 0.18));
 }
 
 .included-visual .hero-card--back {

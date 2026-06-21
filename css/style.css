@@ -1140,7 +1140,7 @@ button {
 
 .product-photo {
   width: 100%;
-  max-width: 520px;
+  max-width: 800px;
   border-radius: 20px;
   box-shadow: var(--shadow-card);
 }

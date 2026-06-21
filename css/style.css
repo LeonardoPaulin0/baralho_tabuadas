@@ -585,7 +585,7 @@ button {
     margin-left: -160px; /* desloca a imagem mais para a esquerda no desktop */
   }
   .included-visual img {
-    width: 100%; /* evita que a imagem ultrapasse para a direita do grid */
+    width: 95%; /* evita que a imagem ultrapasse para a direita do grid */
     max-width: none;
   }
   margin-left: -50px;

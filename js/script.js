@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initStickyCta();
   setYear();
+  applyCheckoutLink();
+  applyScrollOffer();
 });
 
 /**
@@ -22,6 +24,21 @@ const CHECKOUT_LINK = 'https://pay.cakto.com.br/5n4vngf_935283';
 function applyCheckoutLink() {
   document.querySelectorAll('[data-checkout-link]').forEach((el) => {
     el.setAttribute('href', CHECKOUT_LINK);
+  });
+}
+
+/* Para que os dois primeiros botões da página (Hero e Oferta) 
+    rolem suavemente até a seção de checkout */
+
+function applyScrollOffer() {
+  document.querySelectorAll('[data-scroll-offer]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      document.querySelector('#oferta').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
   });
 }
 
